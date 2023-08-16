@@ -33,7 +33,7 @@
           alt=""
         />
       </div> -->
-      <div class="block md:hidden">
+      <div class="block md:hidden" v-if="isUser">
         <img
           src="../assets/menu-items/logout-icon.svg"
           class="w-8 cursor-pointer"
