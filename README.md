@@ -1,23 +1,29 @@
-# frontend-tech-test
+# Smartlead Tech Test Demo
+
+
+
+### Live Deployment Demo link:
+
+https://smartlead-template.vercel.app/
 
 ## Project setup
 ```
-yarn install
+npm install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-yarn serve
+npm run serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn build
+npm build
 ```
 
 ### Lints and fixes files
 ```
-yarn lint
+npm lint
 ```
 
 ### Customize configuration
