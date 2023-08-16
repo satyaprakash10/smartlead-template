@@ -4,7 +4,8 @@
 
 ### Live Deployment Demo link:
 
-https://smartlead-template.vercel.app/
+https://smartlead-template-6tle.vercel.app/
+
 
 ## Project setup
 ```
