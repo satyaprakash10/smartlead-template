@@ -33,6 +33,14 @@
           alt=""
         />
       </div> -->
+      <div class="block md:hidden">
+        <img
+          src="../assets/menu-items/logout-icon.svg"
+          class="w-8 cursor-pointer"
+          alt=""
+          @click="onLogout"
+        />
+      </div>
     </div>
 
     <!-- Profile settings menu -->
@@ -43,20 +51,36 @@
 </template>
 
 <script setup>
-import TheSiteLogo from './TheSiteLogo.vue'
-import UserDropdown from './UserDropdown.vue'
-import UnionIcon from './icons/UnionIcon.vue'
-import GiftsIcon from './icons/GiftsIcon.vue'
-import { ref, computed } from 'vue'
-import { useAuthStore } from '../store'
+import TheSiteLogo from "./TheSiteLogo.vue";
+import UserDropdown from "./UserDropdown.vue";
+import UnionIcon from "./icons/UnionIcon.vue";
+import GiftsIcon from "./icons/GiftsIcon.vue";
+import { ref, inject, computed } from "vue";
+import { useAuthStore } from "../store";
+import { useRouter } from "vue-router";
 
-const authStore = useAuthStore()
+const authStore = useAuthStore();
+const vex = inject("vex");
+const router = useRouter();
 
 const isUser = computed(() => {
-  return authStore.user
-})
+  return authStore.user;
+});
 
-let isUserProfile = ref(false)
+if (router.path === "/dashboard") {
+  authStore.setSelectedUser();
+}
+
+async function onLogout() {
+  authStore.logout();
+  vex.dialog.alert({
+    message: `You've successfully logout!`,
+    contentClassName: "dark",
+  });
+  await router.push("/");
+}
+
+let isUserProfile = ref(false);
 </script>
 
 <style>
